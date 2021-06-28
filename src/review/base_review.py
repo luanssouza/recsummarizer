@@ -1,4 +1,4 @@
-from sentence import Sentence as Sentence
+from sentence import sentence as Sentence
 
 from collections import Counter
 
@@ -58,11 +58,11 @@ class Review(object):
 
     def review_extractor(self, file): 
         """
-        Given a xml file that represents a review, this function instantiates 
-        review objects (and consequently, sentence objects) by parsing the xml tree.
-        For each review object, is computed it's xml name, it's sentences, number of sentences,
+        Given a file that represents a review, this function instantiates 
+        review objects (and consequently, sentence objects) by parsing the tree.
+        For each review object, is computed it's file name, it's sentences, number of sentences,
         average sentiment, and occurrences of nouns. The aspects aren't instantiated in
-        this function, but in the module Movie.py.
+        this function, but in the module movie.py.
 
         
         Args: 

@@ -1,4 +1,4 @@
-from sentence import Sentence as Sentence
+from sentence import sentence as Sentence
 from review.review_factory import review_factory
 
 from extractor import KL_divergence

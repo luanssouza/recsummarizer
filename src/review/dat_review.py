@@ -1,6 +1,6 @@
 from review.base_review import Review
 
-from sentence import Sentence as Sentence
+from sentence import sentence as Sentence
 
 from collections import Counter
 import string
