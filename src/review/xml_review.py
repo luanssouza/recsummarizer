@@ -1,27 +1,17 @@
+from review.base_review import Review
+
 from sentence import Sentence as Sentence
 
-import xml.etree.ElementTree as ET
 from collections import Counter
 import string
 
-from corenlp_protobuf import Document, parseFromDelimitedString
+import xml.etree.ElementTree as ET
 
-
-
-class Review:
+class XmlReview(Review):
     def __init__(self, file):
-        self._id = 0
-        self._file_name = "not instantiated yet"
-        self._sentences = []
-        self._number_of_sentences = 0
-        self._occurrences_of_each_aspect = Counter()
-        self._aspects = []
-        self._average_sentiment = 0
-        self._raw_review = ""
-        self._nouns_occurrences = Counter()
+        self.super()
         
-        #self.review_extractor(file)
-        self.review_extractor_dat(file)
+        self.review_extractor(file)
         
     
     @property

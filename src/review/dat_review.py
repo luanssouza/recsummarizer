@@ -1,4 +1,4 @@
-from review.base_review import BaseReview
+from review.base_review import Review
 
 from sentence import Sentence as Sentence
 
@@ -8,7 +8,7 @@ import string
 from corenlp_protobuf import Document, parseFromDelimitedString
 
 
-class DatReview(BaseReview):
+class DatReview(Review):
     def __init__(self, file):
         self.super()
         

@@ -3,7 +3,7 @@ from sentence import Sentence as Sentence
 from collections import Counter
 
 
-class BaseReview(object):
+class Review(object):
     def __init__(self):
         self._id = 0
         self._file_name = ""
