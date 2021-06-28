@@ -2,18 +2,18 @@ from review.base_review import Review
 from review.dat_review import DatReview
 from review.xml_review import XmlReview
 
-def review_factory(review_type:str = "XmlReview", file:str) -> Review:
+def review_factory(file:str, review_file_type:str = "xml") -> Review:
     """
     Review Factory Method
 
     Parameters
     ----------
-    review_tyoe : str
-        DatReview or XmlReview.
-        Default XmlReview.
-
     file : str
         Given a file that represents a review, this function instantiates review objects (and consequently, sentence objects) by parsing the tree.
+
+    review_tyoe : str
+        dat or xml.
+        Default xml.
 
     Returns:
     ----------
@@ -21,8 +21,8 @@ def review_factory(review_type:str = "XmlReview", file:str) -> Review:
     """
 
     reviews = {
-        "DatReview": DatReview,
-        "XmlReview": XmlReview
+        "dat": DatReview,
+        "xml": XmlReview
     }
 
-    return reviews[algorithm](file)
+    return reviews[review_file_type](file)

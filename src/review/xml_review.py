@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 
 class XmlReview(Review):
     def __init__(self, file):
-        self.super()
+        super().__init__()
         
         self.review_extractor(file)
         

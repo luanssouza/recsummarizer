@@ -10,8 +10,8 @@ from corenlp_protobuf import Document, parseFromDelimitedString
 
 class DatReview(Review):
     def __init__(self, file):
-        self.super()
-        
+        super().__init__()
+    
         self.review_extractor(file)
         
     def review_extractor(self, file): 
