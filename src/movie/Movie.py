@@ -1,5 +1,5 @@
 from sentence import Sentence as Sentence
-from review import Review as Review
+from review.review_factory import review_factory
 
 from extractor import KL_divergence
 from collections import Counter
@@ -7,11 +7,11 @@ from collections import Counter
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 detokenizer = TreebankWordDetokenizer()
 
-class Movie:
+class Movie(object):
 
-    def __init__(self, single_movie_directory, general_corpus):
+    def __init__(self, single_movie_directory, general_corpus, review_file_type):
 
-        self.xml_name = single_movie_directory.name
+        self.file_name = single_movie_directory.name
         self.reviews = []
         self.number_of_reviews = 0
         self.aspects_score = {}
@@ -21,10 +21,10 @@ class Movie:
         self.nouns_occurrences = Counter() 
         self.kl_nouns_values = {}
 
-        self.movie_extractor(single_movie_directory)
         self.__general_corpus = general_corpus
+        self.__review_file_type = review_file_type
 
-
+        self.movie_extractor(single_movie_directory)
     
     def movie_extractor(self, single_movie_directory):
         '''
@@ -39,7 +39,7 @@ class Movie:
 
         for filename in single_movie_directory.iterdir():
             
-            new_review = Review.Review(filename)
+            new_review = review_factory(filename, self.__review_file_type)
             
             if new_review:
                 

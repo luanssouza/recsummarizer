@@ -1,5 +1,5 @@
 from extractor import KL_divergence, aspects_clustering as ac
-from movie import  Movie
+from movie.movie import Movie
 from pathlib import Path
 import numpy as np
 import pandas as pd
@@ -9,7 +9,7 @@ class PreProcess(object):
         self.__kl_threshold = kl_threshold
         self.__top_k_number = top_k_number
 
-    def proprocess(self, base_path, dist_path, general_corpus):
+    def proprocess(self, base_path, dist_path, general_corpus, review_file_type):
         current_directory = Path.cwd()
         # single_reviews_corenlp is a directory containing other folders inside it, in which
         # there are .txt files representing the item reviews
@@ -18,15 +18,15 @@ class PreProcess(object):
         for single_movie_directory in movies_directory.iterdir():
 
             print("trying to create: ", single_movie_directory)
-            new_movie = Movie.Movie(single_movie_directory, general_corpus)
-            print("movie created:", new_movie.xml_name)
+            new_movie = Movie(single_movie_directory, general_corpus, review_file_type)
+            print("movie created:", new_movie.file_name)
             new_movie.kl_values()
 
             new_movie.aspects_score = KL_divergence.epsilon_aspects_extraction(new_movie.kl_nouns_values, self.__kl_threshold)
             # above, the top k aspects of a given itme is evaluated:
             new_movie.top_k_aspects_evaluation(self.__top_k_number)
             
-            movie_dir = dist_path + new_movie.xml_name
+            movie_dir = dist_path + new_movie.file_name
 
             # making movie's folder
             Path(movie_dir).mkdir(parents=True, exist_ok=True)
