@@ -9,8 +9,9 @@ import numpy as np
 
 class ClusterPersistence(Persistence):
 
-    def __init__(self, dist_path: str, embedding):
+    def __init__(self, dist_path: str, embedding, centroid):
         super().__init__(dist_path, embedding)
+        self.__centroid = centroid
 
     def persist_movie(self, movie):
         movie_dir = self._dist_path + movie.file_name
@@ -43,6 +44,14 @@ class ClusterPersistence(Persistence):
         # Saving clusters
         embeddings_df = embeddings_df.fillna(0)
         np.save(movie_dir + "/clusters.npy", self.__cluster_emb(embeddings_df.to_numpy()))
+
+
+        # Saving Centroids
+        centroid = self.__centroid.get_centroid(movie)
+        
+        centroid_emb = self._embedding.sentences_embeddings(list(centroid))
+
+        np.save(movie_dir + "/centroid.npy", centroid_emb)
     
     def __cluster_emb(self, embeddings: np.ndarray):
         return shc.linkage(embeddings)
