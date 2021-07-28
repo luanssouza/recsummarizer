@@ -36,20 +36,28 @@ class ClusterPersistence(Persistence):
         sentences_df = pd.DataFrame(filtered_sentences)
         sentences_df.to_csv(movie_dir + "/filtered_sentences.csv", index=False)
 
+        # Saving filtered sentences embeddings
+        sentences = [s['sentences'] for s in filtered_sentences]
+        embeddings = list(self._embedding.sentences_embeddings(sentences))
+        embeddings_df = pd.DataFrame(embeddings)
+        embeddings_df = embeddings_df.fillna(0)
+        embeddings_df.to_csv(movie_dir + "/embeddings_sentences.csv", index=False)
+
         # Saving aspects embeddings
         embeddings = list(self._embedding.sentences_embeddings(aspects_df['aspect'].to_list()))
         embeddings_df = pd.DataFrame(embeddings)
+        embeddings_df = embeddings_df.fillna(0)
         embeddings_df.to_csv(movie_dir + "/embeddings.csv", index=False)
 
         # Saving clusters
-        embeddings_df = embeddings_df.fillna(0)
         np.save(movie_dir + "/clusters.npy", self.__cluster_emb(embeddings_df.to_numpy()))
 
 
         # Saving Centroids
         centroid = self.__centroid.get_centroid(movie)
-        
-        centroid_emb = self._embedding.sentences_embeddings(list(centroid))
+        centroid = " ".join(list(centroid))
+                
+        centroid_emb = self._embedding.sentence_embedding(centroid)
 
         np.save(movie_dir + "/centroid.npy", centroid_emb)
     
