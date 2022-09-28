@@ -4,6 +4,7 @@ click==8.0.1
 colorama==0.4.4
 corenlp-protobuf==3.8.0
 Cython==0.29.21
+emoji==2.1.0
 filelock==3.0.12
 gensim==4.0.1
 huggingface-hub==0.0.8
@@ -28,6 +29,7 @@ sentence-transformers==1.2.0
 sentencepiece==0.1.96
 six==1.16.0
 smart-open==5.1.0
+stanza==1.4.2
 threadpoolctl==2.1.0
 tokenizers==0.10.3
 torch==1.9.0
