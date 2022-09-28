@@ -153,13 +153,9 @@ class StanzaItem(object):
                 number_of_tokens = sentence.number_of_tokens
                 sentiment_value = int(sentence.sentiment_value)
 
-                print(personal_opinion, number_of_tokens, sentiment_value)
-
                 if not personal_opinion and number_of_tokens >= 5 and sentiment_value >= 2: 
 
                     nouns_in_sentence = sentence.retrieve_nouns()
-                    print(nouns_in_sentence)
-                    print(self.top_k_aspects)
                     
                     for noun in nouns_in_sentence.keys():
                         if noun in self.top_k_aspects:
