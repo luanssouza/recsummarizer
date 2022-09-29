@@ -1,1 +1,2 @@
 from .bnc_general_corpus import BncGeneralCorpus
+from .bnc_csv_general_corpus import CsvGeneralCorpus
