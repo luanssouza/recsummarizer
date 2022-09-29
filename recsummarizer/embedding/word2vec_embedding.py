@@ -1,4 +1,4 @@
-from embedding.base_embedding import Embedding
+from .base_embedding import Embedding
 
 import gensim.downloader
 from gensim.utils import tokenize
