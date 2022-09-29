@@ -1,6 +1,6 @@
-from review.base_review import Review
-from review.dat_review import DatReview
-from review.xml_review import XmlReview
+from .base_review import Review
+from .dat_review import DatReview
+from .xml_review import XmlReview
 
 def review_factory(file:str, review_file_type:str = "xml") -> Review:
     """

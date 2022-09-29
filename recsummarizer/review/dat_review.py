@@ -1,8 +1,7 @@
-from review.base_review import Review
+from .base_review import Review
 
-from sentence import sentence as Sentence
+from ..sentence import Sentence
 
-from collections import Counter
 import string
 
 from corenlp_protobuf import Document, parseFromDelimitedString

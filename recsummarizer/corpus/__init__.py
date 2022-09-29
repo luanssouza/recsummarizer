@@ -1,0 +1,1 @@
+from .bnc_general_corpus import BncGeneralCorpus

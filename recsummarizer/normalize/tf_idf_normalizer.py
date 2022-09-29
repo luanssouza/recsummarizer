@@ -1,4 +1,4 @@
-from normalize.base_normalizer import BaseNormalizer
+from .base_normalizer import BaseNormalizer
 
 import numpy as np
 import pandas as pd

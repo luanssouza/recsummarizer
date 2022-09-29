@@ -1,7 +1,7 @@
 import numpy as np
 from scipy import cluster
 
-from summarizer.summarizer_clusters import SummarizerClusters
+from .summarizer_clusters import SummarizerClusters
 
 class SummarizerClustersSemantic(SummarizerClusters):
     def __init__(self, items_path, discard_threshold, number_of_sentences_in_summary):

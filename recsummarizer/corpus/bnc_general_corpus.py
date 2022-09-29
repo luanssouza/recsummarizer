@@ -1,4 +1,4 @@
-from corpus.base_general_corpus import BaseGeneralCorpus
+from .base_general_corpus import BaseGeneralCorpus
 
 import sqlite3
 

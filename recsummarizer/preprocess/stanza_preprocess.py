@@ -1,5 +1,5 @@
-from extractor.KL_divergence import epsilon_aspects_extraction
-from item.stanza_item import StanzaItem
+from ..extractor.KL_divergence import epsilon_aspects_extraction
+from ..item import StanzaItem
 
 class StanzaPreProcess(object):
     def __init__(self, kl_threshold, top_k_number):

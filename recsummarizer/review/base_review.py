@@ -1,5 +1,3 @@
-from sentence import sentence as Sentence
-
 from collections import Counter
 
 

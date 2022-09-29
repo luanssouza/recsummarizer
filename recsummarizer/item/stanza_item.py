@@ -1,6 +1,6 @@
-from review.stanza_review import StanzaReview
+from ..review.stanza_review import StanzaReview
 
-from extractor import KL_divergence
+from ..extractor import KL_divergence
 from collections import Counter
 
 from nltk.tokenize.treebank import TreebankWordDetokenizer

@@ -1,4 +1,4 @@
-from summarizer.summarizer import Summarizer
+from .summarizer import Summarizer
 
 class SummarizerBaseline(Summarizer):
     def __init__(self, items_path, discard_threshold, number_of_sentences_in_summary):

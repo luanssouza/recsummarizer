@@ -1,6 +1,6 @@
-from review.base_review import Review
+from .base_review import Review
 
-from sentence import sentence as Sentence
+from ..sentence import Sentence
 
 import string
 
@@ -34,7 +34,7 @@ class StanzaReview(Review):
             word_counter = 0
             sentiment_value = s.sentiment
             sentiment = s.sentiment
-            new_sentence = Sentence.Sentence(s.index, sentiment_value, sentiment, "")
+            new_sentence = Sentence(s.index, sentiment_value, sentiment, "")
             self._number_of_sentences += 1
             sentiment_value = int(sentiment_value)            
             self._average_sentiment += sentiment_value
