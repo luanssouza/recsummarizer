@@ -44,7 +44,7 @@ class DatReview(Review):
             word_counter = 0
             sentiment_value = s.annotatedParseTree.sentiment
             sentiment = s.sentiment
-            new_sentence = Sentence.Sentence(s.sentenceIndex, sentiment_value, sentiment, filename)
+            new_sentence = Sentence(s.sentenceIndex, sentiment_value, sentiment, filename)
             self._number_of_sentences += 1
             sentiment_value = int(sentiment_value)            
             self._average_sentiment += sentiment_value

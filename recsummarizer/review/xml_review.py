@@ -45,7 +45,7 @@ class XmlReview(Review):
             sentence_id = sentence.attrib["id"]
             sentiment_value = sentence.attrib["sentimentValue"]
             sentiment = sentence.attrib["sentiment"]
-            new_sentence = Sentence.Sentence(sentence_id, sentiment_value, sentiment, filename)
+            new_sentence = Sentence(sentence_id, sentiment_value, sentiment, filename)
             self._number_of_sentences += 1
             sentiment_value = int(sentiment_value)            
             self._average_sentiment += sentiment_value
