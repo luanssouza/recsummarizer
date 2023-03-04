@@ -1,4 +1,4 @@
-from persistence.base_persistence import Persistence
+from .base_persistence import Persistence
 
 from pathlib import Path
 

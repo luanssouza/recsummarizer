@@ -1,5 +1,5 @@
-from extractor import KL_divergence
-from movie.movie import Movie
+from ..extractor.KL_divergence import epsilon_aspects_extraction
+from ..movie.movie import Movie
 from pathlib import Path
 
 class PreProcess(object):
@@ -20,7 +20,7 @@ class PreProcess(object):
             print("movie created:", new_movie.file_name)
             new_movie.kl_values()
 
-            new_movie.aspects_score = KL_divergence.epsilon_aspects_extraction(new_movie.kl_nouns_values, self.__kl_threshold)
+            new_movie.aspects_score = epsilon_aspects_extraction(new_movie.kl_nouns_values, self.__kl_threshold)
             # above, the top k aspects of a given itme is evaluated:
             new_movie.top_k_aspects_evaluation(self.__top_k_number)
 

@@ -1,7 +1,7 @@
-from sentence import sentence as Sentence
-from review.review_factory import review_factory
+from ..sentence import Sentence
+from ..review.review_factory import review_factory
+from ..extractor.KL_divergence import KL_divergence
 
-from extractor import KL_divergence
 from collections import Counter
 
 from nltk.tokenize.treebank import TreebankWordDetokenizer
