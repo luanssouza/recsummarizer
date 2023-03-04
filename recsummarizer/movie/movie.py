@@ -75,7 +75,7 @@ class Movie(object):
             frequency_in_general = noun_values[2]      
 
             # for each noun in a movie, its KL value is computed:
-            noun_kl_value = KL_divergence.KL_divergence(frequency_in_reviews, frequency_in_general)
+            noun_kl_value = KL_divergence(frequency_in_reviews, frequency_in_general)
 
             self.kl_nouns_values[noun] = noun_kl_value
 
