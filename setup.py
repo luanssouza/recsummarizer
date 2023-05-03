@@ -15,6 +15,6 @@ setup(name='RecSummarizer',
             'nltk>=3.6.2',
             'gensim>=4.0.1',
             'sentence_transformers>=1.2.0',
-            'scikit-learn>=0.24.2'
+            'scikit-learn==0.24.2'
       ]
      )
